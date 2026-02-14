@@ -5,17 +5,18 @@ import lombok.*;
 
 @Entity
 @Getter @Setter @ToString @AllArgsConstructor @NoArgsConstructor
-public class Customer extends BaseEntity {
+public final class Accounts extends BaseEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "account_number")
+    private Long accountNumber;
+
     @Column(name = "customer_id")
     private Long customerId;
 
-    private String name;
+    @Column(name = "account_type")
+    private String accountType;
 
-    private String email;
-
-    @Column(name = "mobile_number")
-    private String mobileNumber;
+    @Column(name = "branch_address")
+    private String branchAddress;
 }

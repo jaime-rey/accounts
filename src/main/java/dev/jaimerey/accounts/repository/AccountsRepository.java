@@ -1,9 +1,20 @@
 package dev.jaimerey.accounts.repository;
 
+import dev.jaimerey.accounts.entity.Accounts;
 import dev.jaimerey.accounts.entity.Customer;
+import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 @Repository
-public interface CustomerRepository extends JpaRepository<Customer, Long> {
+public interface AccountsRepository extends JpaRepository<Accounts, Long> {
+
+    Optional<Accounts> findByCustomerId(Long id);
+
+    @Transactional
+    @Modifying
+    void deleteByCustomerId(Long customerId);
 }

@@ -1,4 +1,12 @@
 package dev.jaimerey.accounts.dto;
 
-public class ResponseDto {
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
+@Data @AllArgsConstructor
+public final class ResponseDto {
+
+    private String statusCode;
+
+    private String statusMsg;
 }

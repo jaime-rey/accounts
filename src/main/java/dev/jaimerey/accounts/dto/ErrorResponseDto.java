@@ -1,12 +1,20 @@
 package dev.jaimerey.accounts.dto;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import org.springframework.http.HttpStatus;
 
-@Data @AllArgsConstructor
-public final class ResponseDto {
+import java.time.LocalDateTime;
 
-    private String statusCode;
+@Data @AllArgsConstructor @Builder
+public final class ErrorResponseDto {
+
+    private String apiPath;
     
-    private String statusMsg;
+    private HttpStatus errorCode;
+
+    private String errorMessage;
+
+    private LocalDateTime errorTime;
 }
