@@ -1,12 +1,17 @@
 package dev.jaimerey.accounts.dto;
 
+
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Pattern;
 import lombok.Data;
 
 @Data
-public final class AccountsDto {
+@Schema(
+        name = "Accounts",
+        description = "Schema to hold Account information"
+)
+public class AccountsDto {
 
     @NotEmpty(message = "AccountNumber can not be a null or empty")
     @Pattern(regexp="(^$|[0-9]{10})",message = "AccountNumber must be 10 digits")
@@ -26,5 +31,4 @@ public final class AccountsDto {
             description = "Eazy Bank branch address", example = "123 NewYork"
     )
     private String branchAddress;
-
 }
